@@ -1,0 +1,11 @@
+# Tasks -- Your Active Task List
+#
+# Claude checks this file at the start of every session.
+# Tasks approaching their due date will be flagged.
+# Claude will actively help execute tasks, not just remind you.
+#
+# Status: pending | in_progress | blocked | complete | delegated | proposal_pending | proposal_ready
+# Priority: 1 (urgent) | 2 (high) | 3 (normal) | 4 (low)
+# delegate_to_claude: true = Claude owns execution. false = you do it.
+
+tasks: []

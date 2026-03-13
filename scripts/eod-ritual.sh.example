@@ -1,0 +1,40 @@
+#!/bin/bash
+# End of Day Ritual Push
+# Runs /eod headlessly via claude -p, emails the output.
+# Triggered by launchd/cron in the evening.
+#
+# SETUP: Same as morning-briefing.sh.example -- see that file for instructions.
+
+set -euo pipefail
+
+# === CONFIGURATION ===
+EMAIL="YOUR_EMAIL@example.com"
+CLAUDE_BIN="${CLAUDE_BIN:-$(which claude)}"
+WORKING_DIR="${WORKING_DIR:-$HOME/Code}"
+
+LOGDIR="$HOME/.claude/logs/automated"
+LOGFILE="$LOGDIR/eod-ritual.log"
+TIMESTAMP=$(date -Iseconds)
+DATE_SUBJECT=$(date "+%A, %d %B %Y")
+
+mkdir -p "$LOGDIR"
+
+# Clear nesting guard so this works when invoked from inside Claude Code or launchd
+unset CLAUDECODE
+
+echo "[$TIMESTAMP] Starting EOD ritual run" >> "$LOGFILE"
+
+EOD=$("$CLAUDE_BIN" -p \
+  "Run /eod. This is an automated headless run, so apply these overrides for interactive steps:
+- Step 6 (Final Capture): Nothing to capture, clean shutdown. Do not prompt for input.
+- Step 7 (Memory Review): Report any candidates for MEMORY.md but do NOT write anything. Just list them.
+- Step 7b (Git Health): Report any repos with uncommitted changes but do NOT commit or push anything. Just list the status.
+Complete all other steps normally. At the end, email the full EOD output to ${EMAIL} with subject 'End of Day -- $DATE_SUBJECT'. Use the email send tool. Do not ask for confirmation, just send it." \
+  --model opus \
+  --no-session-persistence \
+  -d "$WORKING_DIR" \
+  2>&1) || true
+
+echo "[$TIMESTAMP] Run complete" >> "$LOGFILE"
+echo "$EOD" >> "$LOGFILE"
+echo "---" >> "$LOGFILE"

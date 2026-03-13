@@ -1,0 +1,42 @@
+#!/bin/bash
+# Morning Briefing Push
+# Runs /gm headlessly via claude -p, emails the output.
+# Triggered by launchd/cron at your preferred morning time.
+#
+# SETUP:
+# 1. Replace YOUR_EMAIL with your email address
+# 2. Replace YOUR_CLAUDE_PATH with the path to your claude binary
+#    (find it with: which claude)
+# 3. Update --allowedTools with your MCP tool names
+# 4. Make executable: chmod +x morning-briefing.sh
+# 5. Set up launchd (macOS) or cron (Linux) -- see docs/automation.md
+
+set -euo pipefail
+
+# === CONFIGURATION ===
+EMAIL="YOUR_EMAIL@example.com"
+CLAUDE_BIN="${CLAUDE_BIN:-$(which claude)}"
+WORKING_DIR="${WORKING_DIR:-$HOME/Code}"
+
+LOGDIR="$HOME/.claude/logs/automated"
+LOGFILE="$LOGDIR/morning-briefing.log"
+TIMESTAMP=$(date -Iseconds)
+DATE_SUBJECT=$(date "+%A, %d %B %Y")
+
+mkdir -p "$LOGDIR"
+
+# Clear nesting guard so this works when invoked from inside Claude Code or launchd
+unset CLAUDECODE
+
+echo "[$TIMESTAMP] Starting morning briefing run" >> "$LOGFILE"
+
+BRIEFING=$("$CLAUDE_BIN" -p \
+  "Run /gm. At the end, email the full briefing output to ${EMAIL} with subject 'Morning Briefing -- $DATE_SUBJECT'. Use the email send tool. Do not ask for confirmation, just send it." \
+  --model opus \
+  --no-session-persistence \
+  -d "$WORKING_DIR" \
+  2>&1) || true
+
+echo "[$TIMESTAMP] Run complete" >> "$LOGFILE"
+echo "$BRIEFING" >> "$LOGFILE"
+echo "---" >> "$LOGFILE"

@@ -1,0 +1,89 @@
+# goals.yaml -- Chief of Staff
+# Last updated: YYYY-MM-DD
+# Review cadence: Every 2 weeks
+#
+# This file defines your goals and key results. The system uses it to:
+# - Align tasks to goals (every task should serve a goal)
+# - Track progress in morning briefings
+# - Flag stalled goals in diagnostics
+# - Guide prioritisation decisions
+#
+# Structure:
+#   primary_goal: The one thing that matters most right now
+#   supporting_goals: 3-5 goals that support or enable the primary goal
+#
+# Each goal has:
+#   name: Short identifier (used in task alignment)
+#   description: What success looks like
+#   key_results: Measurable outcomes with targets and current values
+#   tactics/rules: How to pursue this goal (optional)
+
+primary_goal:
+  name: "Your primary goal here"
+  description: >
+    What is the single most important thing you're working toward?
+    Be specific about what success looks like.
+  key_results:
+    - metric: "Key result 1"
+      target: "What does done look like?"
+      current: 0
+    - metric: "Key result 2"
+      target: "What does done look like?"
+      current: 0
+  deadline: "Timeframe or specific date"
+
+supporting_goals:
+
+  - name: "Build and activate network"
+    description: >
+      Systematically reach out to contacts and build new connections.
+      Warm, contextual, not transactional.
+    key_results:
+      - metric: "Contacts tracked in system"
+        target: 50
+        current: 0
+      - metric: "Outreach messages sent per week"
+        target: "3-5"
+        current: 0
+      - metric: "Meaningful conversations held"
+        target: "2-3 per week once ramping"
+        current: 0
+
+  - name: "Maintain daily structure"
+    description: >
+      The rituals are not optional. They are the scaffolding
+      that keeps everything else standing.
+    key_results:
+      - metric: "Morning briefing completed"
+        target: "Every weekday"
+        frequency: "daily"
+      - metric: "Closing ritual completed"
+        target: "Every weekday"
+        frequency: "daily"
+      - metric: "Weekly reflection"
+        target: "Every Friday"
+        frequency: "weekly"
+    rules:
+      - "Mornings protected for high-leverage work"
+      - "No email triage before Top 3 is clear"
+      - "Hard stop at end of day"
+      - "If structure breaks for 2+ days, that's a red flag -- escalate"
+
+  - name: "Manage comms efficiently"
+    description: >
+      Email, chat, calendar -- these are tools, not the job.
+      Triage fast, respond where it matters, don't let it eat the day.
+    key_results:
+      - metric: "Morning triage time"
+        target: "< 30 minutes"
+      - metric: "Inbox zero (or close)"
+        target: "End of each day"
+
+  - name: "Personal"
+    description: >
+      Life admin, family, errands, health. Things that need doing
+      but aren't career or system tasks. Keep them visible so they don't
+      pile up and drain energy.
+    key_results:
+      - metric: "No overdue personal items"
+        target: "Stay current"

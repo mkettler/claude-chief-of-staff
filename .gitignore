@@ -1,0 +1,43 @@
+# Personal data (created by user, not tracked in public repo)
+my-profile.md
+goals.yaml
+my-tasks.yaml
+jobs.md
+/signals.md
+
+# User-generated content
+contacts/*.md
+!contacts/.gitkeep
+logs/**/*.md
+logs/**/*.log
+!logs/daily/.gitkeep
+reflections/*.md
+!reflections/.gitkeep
+inbox/*.md
+!inbox/.gitkeep
+proposals/*.md
+!proposals/.gitkeep
+drafts/*.md
+!drafts/.gitkeep
+
+# Session and debug state
+.obsidian/
+*.jsonl
+stats-cache.json
+history.jsonl
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if any projects are built here)
+node_modules/
+
+# Credentials and secrets
+*.key
+*.pem
+*.token
+.env
+.env.*
+credentials.json
+oauth*.json
