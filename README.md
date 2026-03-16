@@ -104,6 +104,10 @@ Because the data layer is just files on disk (YAML + markdown), you can build a 
 
 See [docs/dashboard.md](docs/dashboard.md) for the full architecture, API route patterns, data types, and how to build your own.
 
+**Extensions:**
+- [Habit tracker](docs/habit-tracker.md) -- radial sunburst visualisation for daily habit tracking with month-end reflection rituals
+- [Peer feedback studio](docs/feedback-studio.md) -- AI-powered evidence gathering + structured editor for writing performance review feedback
+
 ## Automation (optional)
 
 Morning briefings and end-of-day rituals can run automatically via launchd (macOS) or cron (Linux). See [docs/automation.md](docs/automation.md).
