@@ -98,6 +98,12 @@ The system works without any MCP servers. Adding them unlocks more capability:
 
 See [docs/mcp-integrations.md](docs/mcp-integrations.md) for setup instructions.
 
+## Visual dashboard (optional)
+
+Because the data layer is just files on disk (YAML + markdown), you can build a web dashboard on top of it. A Next.js app with API routes that read from `~/.claude/` gives you a visual command centre: task kanban, goal progress bars, contact staleness, proposal review cards, and a brain dump textarea.
+
+See [docs/dashboard.md](docs/dashboard.md) for the full architecture, API route patterns, data types, and how to build your own.
+
 ## Automation (optional)
 
 Morning briefings and end-of-day rituals can run automatically via launchd (macOS) or cron (Linux). See [docs/automation.md](docs/automation.md).
