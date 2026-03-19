@@ -112,6 +112,10 @@ See [docs/dashboard.md](docs/dashboard.md) for the full architecture, API route 
 
 Morning briefings and end-of-day rituals can run automatically via launchd (macOS) or cron (Linux). See [docs/automation.md](docs/automation.md).
 
+## Architecture
+
+Want to understand why the system is built the way it is? See [ARCHITECTURE.md](ARCHITECTURE.md) for the design decisions behind the file-based persistence layer, context window management, security boundaries, the daily log bridging pattern, and more.
+
 ## Customization
 
 Everything is yours to modify. See [docs/customization.md](docs/customization.md) for:
