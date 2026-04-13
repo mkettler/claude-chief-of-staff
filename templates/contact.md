@@ -1,13 +1,13 @@
 # [Full Name]
 
-| Field | Value |
-|-------|-------|
-| **Role** | [Role at Company] |
-| **Category** | [active-opportunity / warm / dormant / industry] |
-| **Email** | [if known] |
-| **Location** | [if known] |
-| **Connection** | [how you know each other] |
-| **Relevance** | [why they matter for your goals] |
+| Field          | Value                                            |
+| -------------- | ------------------------------------------------ |
+| **Role**       | [Role at Company]                                |
+| **Category**   | [active-opportunity / warm / dormant / industry] |
+| **Email**      | [if known]                                       |
+| **Location**   | [if known]                                       |
+| **Connection** | [how you know each other]                        |
+| **Relevance**  | [why they matter for your goals]                 |
 
 ## Context
 
